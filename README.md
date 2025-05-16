@@ -1,6 +1,6 @@
 # Dataproc Monitoring with gcloud
 
-![Dataproc Logo](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Pemw-FKBIh7utd2cGg0NfgHaEK%26cb%3Diwp2%26pid%3DApi&f=1&ipt=bf65ff2d93a83e9624367be32ecb29370f0134a396517ed37c182409b5cfb4b0&ipo=images)  
+![Dataproc Logo](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fmax%2F760%2F1*HhBZ02dDPXiFPaHCPYxzYg.png&f=1&nofb=1&ipt=6462ffabfd7f030197b2092065b05f6c09dd12966273dc94e9e22a399aae0d7d)  
 *Monitor your Google Cloud Dataproc Spark cluster with Prometheus and Grafana using gcloud-based scripts.*
 
 ## Overview
