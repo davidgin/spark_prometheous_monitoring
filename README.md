@@ -9,7 +9,7 @@ This repository provides two Python scripts to configure monitoring for an exist
 
 - **One-Time Execution**: Scripts run once and exit, avoiding continuous running as per user preference.
 - **Dynamic Spark UI Port Detection**: Automatically detects the active Spark UI port.
-- **Lifecycle Relabeling**: Labels worker nodes as `spot` or `on-demand` in Prometheus without ongoing script intervention.
+- **Lifecycle Relabeling**: Labels worker nodes as `SPOT` or `on-demand` in Prometheus without ongoing script intervention.
 - **gcloud-Only Approach**: Avoids Google Cloud SDK Python libraries, using CLI commands exclusively.
 
 ## Project Structure
