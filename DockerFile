@@ -1,0 +1,13 @@
+FROM python:3.10
+
+WORKDIR /app
+
+COPY . /app
+
+RUN pip install -r requirements.txt
+
+RUN chmod +x verification.sh
+
+ENTRYPOINT ["python"]
+
+CMD ["setup_spark_with_docker_prometheus_grafana_gcloud.py"]

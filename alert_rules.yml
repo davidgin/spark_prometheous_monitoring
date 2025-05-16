@@ -1,0 +1,91 @@
+groups:
+- name: SparkStreamingAlerts
+  rules:
+    - alert: StreamingBackpressure
+      expr: spark_streaming_processing_rate < (spark_streaming_input_rate * 0.8)
+      for: 5m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Streaming backpressure detected"
+        description: "Processing rate ({{ $value }}) below 80% of input rate."
+    - alert: HighStreamingLatency
+      expr: spark_streaming_latency > 1000
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High streaming latency"
+        description: "Latency ({{ $value }} ms) exceeds 1s."
+    - alert: LowExecutorCount
+      expr: spark_executor_count < 2  # Adjust based on human cluster size
+      for: 2m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Low executor count"
+        description: "Executor count ({{ $value }}) too low."
+    - alert: HighExecutorMemoryUsage
+      expr: spark_executor_memory_used_bytes > 0.9 * 1024 * 1024 * 1024
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High executor memory usage"
+        description: "Memory ({{ $value }} bytes) near capacity."
+    - alert: HighExecutorCPUUsage
+      expr: rate(spark_executor_cpu_time_total[5m]) > 0.9
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High executor CPU usage"
+        description: "CPU usage ({{ $value }}) near capacity."
+    - alert: StreamingBatchPileup
+      expr: spark_streaming_num_active_batches > 5
+      for: 5m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Streaming batch pileup"
+        description: "Active batches ({{ $value }}) exceed 5."
+    - alert: HighDriverMemoryUsage
+      expr: spark_driver_memory_used_bytes > 0.9 * 1024 * 1024 * 1024
+      for: 5m
+      labels:
+        severity: critical
+      annotations:
+        summary: "High driver memory usage"
+        description: "Driver memory ({{ $value }} bytes) near capacity."
+    - alert: HighTaskFailureRate
+      expr: rate(spark_executor_failed_tasks_total[5m]) > 0.1
+      for: 2m
+      labels:
+        severity: critical
+      annotations:
+        summary: "High task failure rate"
+        description: "Task failures ({{ $value }}/s) increasing."
+    - alert: ExecutorLoss
+      expr: rate(spark_executor_lost_total[5m]) > 0.05
+      for: 2m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Executor loss detected"
+        description: "Executors lost at {{ $value }}/s."
+    - alert: SlowBatchProcessing
+      expr: spark_streaming_batch_processing_time > 1000
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "Slow batch processing"
+        description: "Batch time ({{ $value }} ms) exceeds 1s."
+    - alert: HighGarbageCollection
+      expr: rate(spark_executor_gc_time_total[5m]) > 0.1
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High GC time"
+        description: "GC time ({{ $value }}/s) too high."

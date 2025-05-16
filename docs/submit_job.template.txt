@@ -1,0 +1,6 @@
+gcloud dataproc jobs submit spark \
+  --cluster=${CLUSTER_NAME} \
+  --region=${REGION} \
+  --class=YourStreamingClass \
+  --jars=your-app.jar \
+  --properties="spark.sql.streaming.metricsEnabled=true"
