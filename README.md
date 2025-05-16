@@ -83,7 +83,7 @@ It can be transormed to a Terraform project.
 
 1. **Clone or Download**:
 2. unzip dataproc_monitoring_gcloud.zip
-3. cd dataproc_monitoring_gcloud
+3. cd spark_prometheous_monitoring/
 
  **Install Dependencies**:
    pip3 install requests
